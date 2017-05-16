@@ -39,6 +39,12 @@ echo "Getting i3 config, scripts, background image"
 cd $GIT_DIR
 git clone https://github.com/jsprada/dotfiles
 
+echo "Customizing prompt"
+cp $HOME/.bashrc $HOME/.bashrc.backup
+echo prompt >> $HOME/.bashrc
+
+source $HOME/.bashrc
+
 echo "Installing..."
 SOURCE_DIR=$GIT_DIR/dotfiles
 
@@ -46,6 +52,7 @@ cp $SOURCE_DIR/$BACKGROUNDS_DIR/* $HOME/$BACKGROUNDS_DIR/
 cp $SOURCE_DIR/$SCRIPTS_DIR/* $HOME/$SCRIPTS_DIR/
 mv $HOME/$CONFIG_DIR/i3/config $HOME/$CONFIG_DIR/i3/config.backup
 cp $SOURCE_DIR/$CONFIG_DIR/i3/config_laptop $HOME/$CONFIG_DIR/i3/config
+mv $HOME/$CONFIG_DIR/i3/i3blocks_laptop.conf $HOME/$CONFIG_DIR/i3/i3blocks_laptop.conf.backup
 cp $SOURCE_DIR/$CONFIG_DIR/i3/i3blocks_laptop.conf $HOME/$CONFIG_DIR/i3/i3blocks_laptop.conf
 
 echo ""
