@@ -6,7 +6,7 @@ sudo pacman -Syyu
 
 mkdir -p ~/files/{scripts,projects,git,pics/{backgrounds,screenshots}}
 
-sudo pacman -S git xfce4-terminal scrot rofi lxappearance pavucontrol feh thunar compton thermald dunst 
+sudo pacman -S git xfce4-terminal scrot rofi lxappearance pavucontrol feh thunar compton thermald dunst i3blocks
 
 yaourt i3-gaps-git --noconfirm --force
 
