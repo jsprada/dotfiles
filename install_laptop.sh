@@ -10,15 +10,15 @@ sudo pacman -S git xfce4-terminal scrot rofi lxappearance pavucontrol feh thunar
 
 yaourt i3-gaps-git --noconfirm --force
 
-HOME_DIR = $HOME
-CONFIG_DIR = /.config
-FILES_DIR = /files
-SCRIPTS_DIR = $FILES_DIR/scripts
-PROJECTS_DIR = $FILES_DIR/projects
-GIT_DIR = $HOME/$FILES_DIR/git
-PICS_DIR = $FILES_DIR/pics
-BACKGROUNDS_DIR = $PICS_DIR/backgrounds
-SCREENSHOTS_DIR = $PICS_DIR/screenshots
+HOME_DIR=$HOME
+CONFIG_DIR=/.config
+FILES_DIR=/files
+SCRIPTS_DIR=$FILES_DIR/scripts
+PROJECTS_DIR=$FILES_DIR/projects
+GIT_DIR=$HOME/$FILES_DIR/git
+PICS_DIR=$FILES_DIR/pics
+BACKGROUNDS_DIR=$PICS_DIR/backgrounds
+SCREENSHOTS_DIR=$PICS_DIR/screenshots
 
 cd $GIT_DIR
 git clone https://github.com/supermarin/YosemiteSanFranciscoFont
