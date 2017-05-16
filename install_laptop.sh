@@ -3,6 +3,7 @@
 # Setup new i3 instance on laptop (Arch Linux)
 # Johnny Sprada
 
+clear
 echo "Getting i3 config for laptop"
 echo "Updating Arch Linux packages"
 sudo pacman -Syyu
