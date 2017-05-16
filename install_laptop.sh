@@ -43,7 +43,7 @@ git clone https://github.com/jsprada/dotfiles
 
 echo "Customizing prompt"
 cp $HOME/.bashrc $HOME/.bashrc.backup
-echo prompt >> $HOME/.bashrc
+cat prompt >> $HOME/.bashrc
 
 source $HOME/.bashrc
 
