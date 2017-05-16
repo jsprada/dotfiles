@@ -11,7 +11,7 @@ echo "Creating directory tree in ~/files/"
 mkdir -p ~/files/{scripts,projects,git,pics/{backgrounds,screenshots}}
 
 echo "Installing packages"
-sudo pacman -S $(./packages_laptop)
+sudo pacman -S $(cat ./packages_laptop)
 
 echo "Installing i3wm Gaps version"
 echo ""
