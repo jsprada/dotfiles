@@ -1,0 +1,247 @@
+# i3 Config
+# Johnny Sprada
+
+# Mod
+  set $mod Mod1
+
+# Color Variables
+  set $trans  #00000000
+  set $white #D9CCB9
+  set $tan #c9b79c
+  set $brown #613D2D
+  set $orange #DF7782
+  set $pink #DF7782
+  set $blue #017890
+  set $darkblue #015565
+  set $grey #808080r
+  
+  set $base #2a4e6e
+  set $bright #d9d9d9
+  set $darker #041f73
+  set $dark #133453
+  set $light #4a6b89
+  set $lighter #728da5
+  set $alert #e37800
+ 
+# workspaces
+  set $ws1 "1) terminals"
+  set $ws2 "2) files"
+  set $ws3 "3) web"
+  set $ws4 "4) mail"
+  set $ws5 "5) editor"
+  set $ws6 "6"
+  set $ws7 "7"
+  set $ws8 "8"
+  set $ws9 "9"
+  
+# disable window titles (i3-gaps-git-next)
+  for_window [class="^.*"] border pixel 0
+
+# Set gaps
+  smart_gaps on
+  smart_borders no_gaps
+  gaps inner 6
+  gaps outer 2  
+
+# Window Title Font
+  font pango:SFNS Display 12
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+  floating_modifier $mod
+
+# start a terminal
+  bindsym $mod+Return exec gnome-terminal 
+  bindsym $mod+Shift+Return exec xfce4-terminal
+
+# kill focused window
+  bindsym $mod+Shift+q kill
+
+# screenshot
+  bindsym --release $mod+x exec --no-startup-id scrot -e 'mv $f ~/files/pics/screenshots/'
+
+# Application launcher
+  bindsym $mod+d exec rofi -show run
+
+# Window SwitcherR
+  bindsym $mod+shift+d exec rofi -show window
+
+# change focus (querty)
+  bindsym $mod+j focus left
+  bindsym $mod+l focus down
+  bindsym $mod+k focus up
+  bindsym $mod+semicolon focus right
+
+  bindsym $mod+Left focus left
+  bindsym $mod+Down focus down
+  bindsym $mod+Up focus up
+  bindsym $mod+Right focus right
+
+# move focused window (querty)
+  bindsym $mod+Shift+j move left 
+  bindsym $mod+Shift+k move down
+  bindsym $mod+Shift+l move up
+  bindsym $mod+Shift+semicolon move right
+
+  bindsym $mod+Shift+Left move left
+  bindsym $mod+Shift+Down move down
+  bindsym $mod+Shift+Up move up
+  bindsym $mod+Shift+Right move right
+
+# split in horizontal orientation
+  bindsym $mod+h split h
+
+# split in vertical orientation
+  bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+  bindsym $mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+  bindsym $mod+s layout stacking
+  bindsym $mod+w layout tabbed
+  bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+  bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+  bindsym $mod+space focus mode_toggle
+
+# macbook air media keys
+  bindsym XF86MonBrightnessUp exec xbacklight -inc 10
+  bindsym XF86MonBrightnessDown exec xbacklight -dec 10
+  bindsym XF86LaunchA exec rofi -show window
+  bindsym XF86LaunchB exec rofi -show run
+  bindsym XF86KbdBrightnessDown exec ~/files/scripts/keyboard_backlight_adjust.py -
+  bindsym XF86KbdBrightnessUp exec ~/files/scripts/keyboard_backlight_adjust.py +
+  bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set Master 5%+
+  bindsym XF86AudioLowerVolume exec --no-startup-id amixer set Master 5%-
+  bindsym XF86AudioMute exec --no-startup-id amixer set Master toggle
+
+# switch to workspace
+  bindsym $mod+1 workspace $ws1
+  bindsym $mod+2 workspace $ws2
+  bindsym $mod+3 workspace $ws3
+  bindsym $mod+4 workspace $ws4
+  bindsym $mod+5 workspace $ws5
+  bindsym $mod+6 workspace $ws6
+  bindsym $mod+7 workspace $ws7
+  bindsym $mod+8 workspace $ws8
+  bindsym $mod+9 workspace $ws9
+
+
+# move focused container to workspace
+  bindsym $mod+Shift+1 move container to workspace $ws1
+  bindsym $mod+Shift+2 move container to workspace $ws2
+  bindsym $mod+Shift+3 move container to workspace $ws3
+  bindsym $mod+Shift+4 move container to workspace $ws4
+  bindsym $mod+Shift+5 move container to workspace $ws5
+  bindsym $mod+Shift+6 move container to workspace $ws6
+  bindsym $mod+Shift+7 move container to workspace $ws7
+  bindsym $mod+Shift+8 move container to workspace $ws8
+  bindsym $mod+Shift+9 move container to workspace $ws9
+ 
+
+# reload the configuration file
+  bindsym $mod+Shift+c reload
+
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+  bindsym $mod+Shift+r restart
+
+# exit i3 (logs you out of your X session)
+  bindsym $mod+Shift+x exec "i3-nagbar -t warning -m 'Exit session? ' -b 'Yes, exit i3' 'i3-msg exit'"
+
+# resize window (you can also use the mouse for that)
+  mode "resize" {
+    # These bindings trigger as soon as you enter the resize mode
+    bindsym j resize shrink width 10 px or 10 ppt
+    bindsym k resize grow height 10 px or 10 ppt
+    bindsym l resize shrink height 10 px or 10 ppt
+    bindsym semicolon resize grow width 10 px or 10 ppt
+
+    bindsym Left resize shrink width 10 px or 10 ppt
+    bindsym Down resize grow height 10 px or 10 ppt
+    bindsym Up resize shrink height 10 px or 10 ppt
+    bindsym Right resize grow width 10 px or 10 ppt
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+  }
+
+ bindsym $mod+r mode "resize"
+
+# Color Configuration     border  background text    indicator
+  client.focused          $blue   $blue      $blue   $blue
+  client.focused_inactive $white  $white     $grey   $trans
+  client.unfocused        $trans  $trans     $grey   $trans
+  client.urgent           $pink   $pink      $grey   $trans
+
+# Floating Windows
+  for_window [class="Lxappearance"] floating enable
+  for_window [class="Pavucontrol"] floating enable
+  for_window [class="amdcccle"] floating enable
+  for_window [class="xfce4-power-manager-settings"] floating enable
+  for_window [class="Steam"] floating enable
+  for_window [class="Galculator"] floating enable
+  for_window [class="pico8"] floating enable
+  for_window [class="Transmission-gtk"] floating enable
+  for_window [class="VirtualBox"] floating enable
+  
+# Correct handling of floating windows
+  for_window [window_role="pop-up"] floating enable
+  for_window [window_role="bubble"] floating enable
+  for_window [window_role="task_dialog"] floating enable
+  for_window [window_role="dialog"] floating enable
+  for_window [window_role="menu"] floating enable
+  for_window [window_role="Preferences"] floating enable
+  
+# set background image
+  exec_always feh --bg-scale ~/files/pics/backgrounds/2a4e6e.png
+
+# set default workspaces for specific applications
+  assign [class="Firefox" instance="Navigator"] $ws3
+  assign [class="Thunderbird" instance="Mail"] $ws4
+  assign [class="sublime_text" instance="sublime_text"] $ws5
+  assign [class="net-technicpack-launcher-LauncherMain" instance="sun-awt-X11-XFramePeer"] $ws8
+  assign [class="Minecraft 1.7.10" instance="Minecraft 1.7.10"] $ws8
+  assign [class="Steam" instance="Steam"] $ws9
+  assign [class="transmission-gtk" instance="Stransmission-gtk"] $ws0
+  
+
+# start up applications  
+  exec --no-startup-id subl
+  exec --no-startup-id i3-msg 'workspace $ws3; exec --no-startup-id firefox; workspace $ws2'
+  exec --no-startup-id i3-msg 'workspace $ws2; exec thunar; exec thunar; workspace $ws1'
+  exec --no-startup-id i3-msg 'workspace $ws1; exec xfce4-terminal; exec xfce4-terminal; workspace $ws1'
+
+# environment settings
+  focus_follows_mouse no
+  exec_always compton -f --backend glx --vsync opengl
+  exec --no-startup-id thermald
+  exec nm-applet
+  
+# Notifications
+ #exec --no-startup-id dunst -config ~/.config/dunst
+ exec --no-startup-id dunst
+
+# Bar
+  bar {
+    status_command i3blocks -c ~/.config/i3/i3blocks_laptop.conf
+    height 28
+    font pango:SFNS Display 10
+    position bottom
+
+    colors {
+		  
+  		background $dark
+      #                  border back    text    
+      focused_workspace  $base  $base   $bright
+      active_workspace   $dark  $dark   $bright
+      inactive_workspace $dark  $dark   $lighter
+      urgent_workspace   $trans $alert  $trans
+  	  }
+  }
+
+
+
