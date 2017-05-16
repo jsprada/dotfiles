@@ -7,7 +7,15 @@ lxappearance
 pavucontrol
 feh
 thunar
+tumbler
+thunar-volman
+thunar-archive-plugin
+thunar-media-tags-plugin
 compton
 thermald
 dunst
 i3blocks
+acpi
+lm_sensors
+sysstat
+
