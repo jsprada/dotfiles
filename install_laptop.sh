@@ -10,7 +10,7 @@ sudo pacman -S git xfce4-terminal scrot rofi lxappearance pavucontrol feh thunar
 
 yaourt i3-gaps-git --noconfirm --force
 
-HOME_DIR = $HOME/test
+HOME_DIR = $HOME
 CONFIG_DIR = /.config
 FILES_DIR = /files
 SCRIPTS_DIR = $FILES_DIR/scripts
