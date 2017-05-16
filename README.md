@@ -5,7 +5,7 @@ To install i3 Gaps on an Arch Linux laptop
 
 (press 1 when prompted by yaourt)
 
-    $ sh install_laptop.sh
+    $ curl -sSL https://raw.githubusercontent.com/jsprada/dotfiles/master/install_laptop.sh | sh
     
 ## Todo
 
