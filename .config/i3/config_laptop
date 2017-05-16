@@ -229,7 +229,7 @@
   bar {
     status_command i3blocks -c ~/.config/i3/i3blocks_laptop.conf
     height 28
-    font pango:SFNS Display 10
+    font pango:SFNS Mono 10
     position bottom
 
     colors {
