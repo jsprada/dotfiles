@@ -10,6 +10,7 @@ sudo pacman -Syyu
 
 echo "Creating directory tree in ~/files/"
 mkdir -p ~/files/{scripts,projects,git,pics/{backgrounds,screenshots}}
+mkdir -p ~/.config/i3/
 
 echo "Installing packages"
 sudo pacman -S $(cat ./packages_laptop)
@@ -22,7 +23,7 @@ echo ""
 yaourt i3-gaps-git --noconfirm --force
 
 HOME_DIR=$HOME
-CONFIG_DIR=/.config
+CONFIG_DIR=.config
 FILES_DIR=/files
 SCRIPTS_DIR=$FILES_DIR/scripts
 PROJECTS_DIR=$FILES_DIR/projects
