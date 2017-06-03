@@ -7,20 +7,11 @@ clear
 echo "Getting i3 config for laptop"
 echo "Updating Arch Linux packages"
 sudo pacman -Syyu
+sudo pacman -S git
 
 echo "Creating directory tree in ~/files/"
 mkdir -p ~/files/{scripts,projects,git,pics/{backgrounds,screenshots}}
 mkdir -p ~/.config/i3/
-
-echo "Installing packages"
-sudo pacman -S $(cat ./packages_laptop)
-
-echo "Installing i3wm Gaps version"
-echo ""
-echo "Press 1 when prompted"
-echo ""
-
-yaourt i3-gaps-git --noconfirm --force
 
 HOME_DIR=$HOME
 CONFIG_DIR=.config
@@ -40,6 +31,17 @@ sudo cp $GIT_DIR/YosemiteSanFranciscoFont/*.ttf /usr/share/fonts/TTF/
 echo "Getting i3 config, scripts, background image"
 cd $GIT_DIR
 git clone https://github.com/jsprada/dotfiles
+cd $GIT_DIR/dotfiles
+
+echo "Installing packages"
+sudo pacman -S $(cat ./packages_laptop)
+
+echo "Installing i3wm Gaps version"
+echo ""
+echo "Press 1 when prompted"
+echo ""
+
+yaourt i3-gaps-git --noconfirm --force
 
 echo "Customizing prompt"
 cp $HOME/.bashrc $HOME/.bashrc.backup
